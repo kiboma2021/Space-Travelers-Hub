@@ -2,7 +2,9 @@ import React from "react";
 
 const Rocket = () => {
   return (
-    <div>Rocket page... </div>
+    <div>
+      <h1>Rocket page... </h1>
+    </div>
   )
 }
 
