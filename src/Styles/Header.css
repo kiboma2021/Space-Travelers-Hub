@@ -21,15 +21,19 @@ ul {
   font-size: 1.2rem;
 }
 
+.logo-img {
+  width: 50px
+}
+
 .myLinks {
   display: flex;
-  column-gap: 2rem;
+  column-gap: 1rem;
 }
 
 .rockets,
 .mission,
 .profile {
-  color: blue;
+  color: rgb(0, 170, 255);
   text-decoration: none;
 }
 
@@ -37,4 +41,9 @@ ul {
 .mission.active,
 .profile.active {
   text-decoration: underline;
+}
+
+.mission {
+  border-right: 2px solid black;
+  padding: 0 1rem;
 }

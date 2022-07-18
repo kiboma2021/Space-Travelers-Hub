@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import '../Styles/Header.css'
+import spaceLogo from '../images/space-logo.png'
 
 const Header = () => {
   return (
     <nav>
      <div className="header-section">
         <div className="logo">
-          <img src="" alt="logo"></img>
+          <img className="logo-img" src={spaceLogo} alt="logo"></img>
           <h1>Space Travelers' Hub</h1>
         </div>
         <ul className="myLinks">
