@@ -1,5 +1,4 @@
-import { ActionTypes } from "../Constants/ActionTypes";
-
+import { ActionTypes } from "../Constants/Action-type";
 const initialState = {
   rockets:[]
 }
