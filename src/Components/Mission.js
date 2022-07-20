@@ -1,6 +1,7 @@
 import React,{ useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getMission } from "../Redux/mission/mission";
+import "../Styles/Mission.css"
 
 const Mission = () => {
   const dispatch= useDispatch()
@@ -8,22 +9,31 @@ const Mission = () => {
      dispatch(getMission())
   },[dispatch])
   const { missions}= useSelector((store)=>store.mission)
-  console.log(missions)
-  const renderMission = missions.map((mission) => {
-    const {id, name, description} = mission;
-    return (
-      <div key={id} className="rocket-page">
-          <div className="rocket-board">
-            <div className="rocket-desc">
-              <div className="rocket-name">{ name }</div>
-              <div className="rocket-type">{ description }</div>
-              <button type="button" className="rocket-btn">Reserve Rocket</button>
-            </div>
-          </div>
+  return (
+    <div className="mission-page">
+      <table>
+        <thead>
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {missions.map((mission) => (
+            <tr key={mission.id}>
+              <td>{ mission.name }</td>
+              <td>{ mission.description }</td>
+              <td>
+                <button type="button" className="rocket-btn">Not a Member</button>
+                <button type="button" className="rocket-btn">Join Mission</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-    );
-  });
-  return <>{renderMission}</>
+  );
 }
 
 export default Mission;

@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mission-page {
+  margin: 2rem;
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  border: 2px solid black;
+}
