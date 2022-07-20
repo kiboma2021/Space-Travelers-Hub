@@ -45,7 +45,7 @@ export const getMissionData =async (job,thunkAPI)=>{
     try{
  const response = await fetch(url1,job)
  const data = await response.json()
-  const data2 = getMissionData(data)
+  const data2 = takeMissionData(data)
   return data2
     }catch{
         return thunkAPI.rejectWithValue('something went wrong')

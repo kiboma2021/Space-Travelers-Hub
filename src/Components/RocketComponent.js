@@ -1,7 +1,6 @@
 import React,{ useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getRockets } from '../Redux/rocket/rocket';
-import { Link } from "react-router-dom";
 import "../Styles/Rockets.css"
 
 const Rocket = () => {
