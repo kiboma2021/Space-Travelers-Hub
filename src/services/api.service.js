@@ -10,8 +10,8 @@ data.forEach((data)=>{
   arr.push({
       id:data.id,
       name:data.rocket_name,
-      type:data.rocket_type,
-      flickr_images:data.flickr_images[0]
+      description:data.description,
+      flickr_images:data.flickr_images
   })
 })
 return arr
