@@ -4,7 +4,7 @@ import {
 import './App.css';
 import Header from './Components/Header';
 import Profile from './Components/Profile';
-import Rocket from './Components/Rocket';
+import Rocket from './Components/RocketComponent';
 import Mission from './Components/Mission';
 
 const App = () => (
