@@ -19,9 +19,10 @@ return arr
 
 function takeMissionData(missions){
     const arr = []
+    console.log(arr)
     missions.forEach((mission)=>{
         arr.push({
-   id:mission.id,
+   id:mission.mission_id,
    name:mission.mission_name,
    description:mission.description
         })
@@ -47,6 +48,7 @@ export const getMissionData =async (job,thunkAPI)=>{
     try{
  const response = await fetch(url1,job)
  const data = await response.json()
+ console.log(data)
   const data2 = takeMissionData(data)
   return data2
     }catch{
