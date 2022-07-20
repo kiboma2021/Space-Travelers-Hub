@@ -1,9 +1,16 @@
-import React from "react";
+import React,{ useEffect} from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { getRockets } from '../Redux/rocket/rocket';
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 
 const Rocket = () => {
-  const rockets = useSelector((state) => state.allrockets.rockets );
+  const dispatch= useDispatch()
+  useEffect(()=>{
+     dispatch(getRockets())
+  },[dispatch])
+  const { rockets}= useSelector((store)=>store.rocket)
+  console.log(rockets)
   const renderList = rockets.map((rocket) => {
     const {id, name, type, flickr_images} = rocket;
     return (

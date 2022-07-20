@@ -1,15 +1,17 @@
-import React,{ useEffect} from "react";
+import React,{useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { getRockets } from '../Redux/rocket/rocket';
+import { getMission } from '../Redux/mission/mission';
+
+
 
 
 const Mission = () => {
-  const dispatch= useDispatch()
-  useEffect(()=>{
-     dispatch(getRockets())
-  }),[dispatch]
-  const { rockets}= useSelector((store)=>store.rocket)
-  console.log(rockets)
+  const dispatch = useDispatch()
+useEffect(()=>{
+ dispatch(getMission())
+})
+  const { mission} = useSelector((store)=>store.mission)
+  console.log(mission)
   return (
     <div>Mission page... </div>
   )
