@@ -21,10 +21,10 @@ const Mission = () => {
         </thead>
         <tbody>
           {missions.map((mission) => (
-            <tr key={mission.id}>
+            <tr key={mission.id} className="mission-card">
               <td>{ mission.name }</td>
               <td>{ mission.description }</td>
-              <td>
+              <td className="mission-btns">
                 <button type="button" className="rocket-btn">Not a Member</button>
                 <button type="button" className="rocket-btn">Join Mission</button>
               </td>
