@@ -29,6 +29,8 @@ function takeMissionData(missions){
     return arr
 }
 
+
+
 export const getRocketData =async (job,thunkAPI)=>{
     try{
  const response = await fetch(url,job)
