@@ -1,4 +1,0 @@
-export const ActionTypes = {
-  SET_ROCKET: 'SET_ROCKET',
-  SET_MISSION: 'SET_MISSION',
-}
