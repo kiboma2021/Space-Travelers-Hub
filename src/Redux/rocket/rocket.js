@@ -11,6 +11,11 @@ const initialState ={
 export const rocketSlice = createSlice({
   name:'rockets',
   initialState,
+  reducers:{
+           updateReserved: (state,action)=>{ 
+              state.rockets=action.payload
+           }
+  },
   extraReducers: {
     [getRockets.pending]: (state) => {
       state.isLoading = true;// eslint-disable-line
@@ -18,6 +23,7 @@ export const rocketSlice = createSlice({
     [getRockets.fulfilled]: (state, action) => {
       state.isLoading = false;// eslint-disable-line
       const item = action.payload;
+      console.log(item)
       state.rockets = item; // eslint-disable-line
     },
     [getRockets.rejected]: (state) => {
@@ -25,6 +31,7 @@ export const rocketSlice = createSlice({
     },
   }
 })
+export const { updateReserved }=rocketSlice.actions
 export default rocketSlice.reducer;
 
 

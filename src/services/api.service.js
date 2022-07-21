@@ -11,7 +11,8 @@ data.forEach((data)=>{
       id:data.id,
       name:data.rocket_name,
       description:data.description,
-      flickr_images:data.flickr_images
+      flickr_images:data.flickr_images,
+      reserved:false
   })
 })
 return arr
