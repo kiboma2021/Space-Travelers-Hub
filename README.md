@@ -69,3 +69,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+function diagonalDifference(arr) 
+{ // Write your code here let rightSum=0,
+leftSum=0; let i=0, j = arr.length-1; 
+arr.forEach(arr=>{ rightSum +=arr[i];
+  leftSum += arr[j]; i++; j--; }) return Math.abs(rightSum-leftSum); }
+
