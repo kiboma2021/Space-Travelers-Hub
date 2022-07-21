@@ -25,8 +25,6 @@ const Mission = () => {
   }
      
 
-  const renderList = missions.map((missioned)=>{
-    const { id,name,description,mission}=missioned
 
   return (
     <div className="mission-page">
@@ -37,29 +35,30 @@ const Mission = () => {
             <th>Description</th>
             <th>Status</th>
           </tr>
-        </thead>
-        <tbody key={id}>
-            <tr key={id} className="mission-card">
-              <td>{ name }</td>
-              <td>{ description }</td>
+        </thead>  
+        {   missions.map((mis)=>(
+
+          <tbody key={mis.id}>
+            <tr key={mis.id} className="mission-card">
+              <td>{ mis.name }</td>
+              <td>{ mis.description }</td>
               <td className="mission-btns">
 
-                <p className={mission? ' aactive' : ' inactive ' }>{mission? ' active Member' : 'Not a Memeber'}</p>
-                <button className={ mission ? 'activebtn' : 'inactivebtn' }  type="button" onClick={()=>updateMission(id)} >{ mission? 'Cancel Misson ' : ' Join Mission'}</button>
+                <p className={mis.mission? ' aactive' : ' inactive ' }>{mis.mission? ' active Member' : 'Not a Memeber'}</p>
+                <button className={ mis.mission ? 'activebtn' : 'inactivebtn' }  type="button" onClick={()=>updateMission(mis.id)} >{ mis.mission? 'Cancel Misson ' : ' Join Mission'}</button>
 
-                <button type="button" className="rocket-btn">Not a Member</button>
-              </td>
-              <td>
-                <button type="button" className="rocket-btn">Join Mission</button>
  
               </td>
             </tr>
 
         </tbody>
+        ))};
+
+        
+
+      
       </table>
     </div>
   );
-})
-return <>{renderList}</>
-}
+        }
 export default Mission;
