@@ -11,6 +11,11 @@ const initialState ={
 export const MissionSlice = createSlice({
   name:'rockets',
   initialState,
+  reducers:{
+           missionUpdate:(state,action)=>{
+                        state.missions=action.payload  
+           }
+  },
   extraReducers: {
     [getMission.pending]: (state) => {
       state.isLoading = true;// eslint-disable-line
@@ -18,7 +23,6 @@ export const MissionSlice = createSlice({
     [getMission.fulfilled]: (state, action) => {
       state.isLoading = false;// eslint-disable-line
       const item = action.payload;
-      console.log(item)
       state.missions = item; // eslint-disable-line
     },
     [getMission.rejected]: (state) => {
@@ -26,4 +30,5 @@ export const MissionSlice = createSlice({
     },
   }
 })
+export const {missionUpdate }= MissionSlice.actions;
 export default MissionSlice.reducer;

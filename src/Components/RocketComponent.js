@@ -9,6 +9,7 @@ const Rocket = () => {
      dispatch(getRockets())
   },[dispatch])
   const { rockets}= useSelector((store)=>store.rocket)
+  
    const updateRocket=(id)=>{
      const dene =  rockets.map((item)=>{   
        if( item.id ===id){

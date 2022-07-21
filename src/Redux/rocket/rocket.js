@@ -23,7 +23,6 @@ export const rocketSlice = createSlice({
     [getRockets.fulfilled]: (state, action) => {
       state.isLoading = false;// eslint-disable-line
       const item = action.payload;
-      console.log(item)
       state.rockets = item; // eslint-disable-line
     },
     [getRockets.rejected]: (state) => {
