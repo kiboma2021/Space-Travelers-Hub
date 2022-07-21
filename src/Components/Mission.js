@@ -1,6 +1,6 @@
 import React,{ useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { getMission } from "../Redux/mission/mission";
+import { getMission,missionUpdate } from "../Redux/mission/mission";
 import "../Styles/Mission.css"
 
 const Mission = () => {
@@ -8,7 +8,26 @@ const Mission = () => {
   useEffect(()=>{
      dispatch(getMission())
   },[dispatch])
-  const { missions}= useSelector((store)=>store.mission)
+  const { missions} = useSelector((store)=>store.mission)
+  
+  const updateMission= (id)=>{
+  const dene= missions.map((item)=>{
+    if (item.id=== id){
+      const missionState=item.mission
+      return{
+        ...item,
+        mission:!missionState
+      }
+    }
+    return item
+  })
+  dispatch(missionUpdate(dene))
+  }
+     
+
+  const renderList = missions.map((missioned)=>{
+    const { id,name,description,mission}=missioned
+
   return (
     <div className="mission-page">
       <table>
@@ -19,21 +38,21 @@ const Mission = () => {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
-          {missions.map((mission) => (
-            <tr key={mission.id} className="mission-card">
-              <td>{ mission.name }</td>
-              <td>{ mission.description }</td>
+        <tbody key={id}>
+            <tr key={id} className="mission-card">
+              <td>{ name }</td>
+              <td>{ description }</td>
               <td className="mission-btns">
-                <button type="button" className="rocket-btn">Not a Member</button>
-                <button type="button" className="rocket-btn">Join Mission</button>
+                <p className={mission? ' aactive' : ' inactive ' }>{mission? ' active Member' : 'Not a Memeber'}</p>
+                <button className={ mission ? 'activebtn' : 'inactivebtn' }  type="button" onClick={()=>updateMission(id)} >{ mission? 'Cancel Misson ' : ' Join Mission'}</button>
               </td>
             </tr>
-          ))}
+
         </tbody>
       </table>
     </div>
   );
+})
+return <>{renderList}</>
 }
-
 export default Mission;
