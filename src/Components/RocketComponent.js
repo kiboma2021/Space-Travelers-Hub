@@ -34,7 +34,7 @@ const Rocket = () => {
             <div className="rocket-desc">
               <div className="rocket-name">{ name }</div>
               <div className="rocket-type">
-              { reserved? <span className="reserved-span "> Reserved  </span>: ' ' }
+              { reserved? <span className="reserved-span "> Reserved  </span>: ' rocket-type' }
               { description }
               </div>
               <button type="button"onClick={()=>updateRocket(id)} className={reserved? "rocket-btn": 'btn'}>
