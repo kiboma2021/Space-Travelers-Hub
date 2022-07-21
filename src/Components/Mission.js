@@ -26,6 +26,8 @@ const Mission = () => {
               <td>{ mission.description }</td>
               <td className="mission-btns">
                 <button type="button" className="rocket-btn">Not a Member</button>
+              </td>
+              <td>
                 <button type="button" className="rocket-btn">Join Mission</button>
               </td>
             </tr>
