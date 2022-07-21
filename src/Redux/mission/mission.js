@@ -5,7 +5,7 @@ import { getMissionData } from "../../services/api.service";
 export const getMission = createAsyncThunk('job/getMission', getMissionData)
 
 const initialState ={
-  mission:[],
+  missions:[],
   isLoading:true,
 }
 export const MissionSlice = createSlice({
@@ -18,7 +18,8 @@ export const MissionSlice = createSlice({
     [getMission.fulfilled]: (state, action) => {
       state.isLoading = false;// eslint-disable-line
       const item = action.payload;
-      state.mission = item; // eslint-disable-line
+      console.log(item)
+      state.missions = item; // eslint-disable-line
     },
     [getMission.rejected]: (state) => {
       state.isLoading = false;// eslint-disable-line
