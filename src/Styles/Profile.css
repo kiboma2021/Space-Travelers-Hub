@@ -3,6 +3,10 @@ li {
   padding: 1rem 0;
 }
 
+li:nth-child(odd){
+  border-top: 1px solid black;
+}
+
 .profile-page {
   margin: 1.5rem 3rem;
   display: flex;
