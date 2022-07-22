@@ -21,6 +21,23 @@ const Mission = () => {
           ...item,
           mission: !missionState,
         };
+
+  const dispatch= useDispatch()
+    const { missions} = useSelector((store)=>store.mission)
+
+  useEffect(()=>{
+    if (!missions.length) {
+      dispatch(getMission());
+    }
+  },[dispatch])
+  
+  const updateMission= (id)=>{
+  const dene= missions.map((item)=>{
+    if (item.id=== id){
+      const missionState=item.mission
+      return{
+        ...item,
+        mission:!missionState
       }
       return item;
     });

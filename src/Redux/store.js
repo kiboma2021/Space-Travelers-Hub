@@ -23,3 +23,18 @@ export const store = configureStore({
   }),
 });
 export const persistor = persistStore(store);
+=======
+export const   store = configureStore({
+  reducer:persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+          serializableCheck: false,
+        }),
+})
+export const setupStore = preloadedState => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
+export const persistor = persistStore(store)
