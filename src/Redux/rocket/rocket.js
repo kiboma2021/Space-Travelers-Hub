@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getRocketData } from '../../services/api.service';
 
+export const getRockets = createAsyncThunk('job/getRockets', getRocketData);
 
-export const getRockets = createAsyncThunk('job/getRockets', getRocketData)
-
-const initialState ={
-  rockets:[],
-  isLoading:true,
-}
+const initialState = {
+  rockets: [],
+  isLoading: true,
+};
 export const rocketSlice = createSlice({
-  name:'rockets',
+  name: 'rockets',
   initialState,
-  reducers:{
-           updateReserved: (state,action)=>{ 
-              state.rockets=action.payload
-              return state
-           }
+  reducers: {
+    updateReserved: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.rockets = action.payload;
+      return state;
+    },
   },
   extraReducers: {
     [getRockets.pending]: (state) => {
@@ -29,9 +29,7 @@ export const rocketSlice = createSlice({
     [getRockets.rejected]: (state) => {
       state.isLoading = false;// eslint-disable-line
     },
-  }
-})
-export const { updateReserved }=rocketSlice.actions
+  },
+});
+export const { updateReserved } = rocketSlice.actions;
 export default rocketSlice.reducer;
-
-
