@@ -35,35 +35,6 @@ function MissionCard() {
 
     </>
   );
-
-<>
-
-<div>
-  <h3>My Missions</h3>
-     { missionCounter > 0 ? (
-       missionReserved.map((mission)=>(
-
-         <li className="Profile-cards"> 
-<div>missionCard
-     { missionCounter >=0 ? (
-       missionReserved.map((mission)=>(
-         <li key={mission.id}> 
-         {mission.name}
-         </li>
-       ))
-
-     ) : (
-   <li>
-   reserved missions currently(0)
-
-   </li>
-     )
-     }
-</div>
-
-
-</>
-    )
 }
 
 export default MissionCard;

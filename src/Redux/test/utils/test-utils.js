@@ -1,20 +1,19 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { setupStore } from '../../store'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { setupStore } from '../../store';
 
-
-export function renderWithProviders(
+export function renderWithProviders(// eslint-disable-line
   ui,
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
     ...renderOptions
-  } = {}
+  } = {},
 ) {
-  function Wrapper({ children }) {
-    return <Provider store={store}>{children}</Provider>
+  function Wrapper({ children }) { // eslint-disable-line
+    return <Provider store={store}>{children}</Provider>;
   }
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
+  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }

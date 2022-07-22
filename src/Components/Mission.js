@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Table from 'react-bootstrap/Table';
 import { getMission, missionUpdate } from '../Redux/mission/mission';
 import '../Styles/Mission.css';
 
 const Mission = () => {
-  const { missions } = useSelector((store) => store.mission);
   const dispatch = useDispatch();
+  const { missions } = useSelector((store) => store.mission);
+
   useEffect(() => {
     if (!missions.length) {
       dispatch(getMission());
@@ -21,23 +21,6 @@ const Mission = () => {
           ...item,
           mission: !missionState,
         };
-
-  const dispatch= useDispatch()
-    const { missions} = useSelector((store)=>store.mission)
-
-  useEffect(()=>{
-    if (!missions.length) {
-      dispatch(getMission());
-    }
-  },[dispatch])
-  
-  const updateMission= (id)=>{
-  const dene= missions.map((item)=>{
-    if (item.id=== id){
-      const missionState=item.mission
-      return{
-        ...item,
-        mission:!missionState
       }
       return item;
     });
@@ -46,7 +29,7 @@ const Mission = () => {
 
   return (
     <div className="mission-page">
-      <Table striped bordered hover>
+      <table>
         <thead>
           <tr>
             <th>Mission</th>
@@ -60,13 +43,19 @@ const Mission = () => {
             <tr key={mis.id} className="mission-card">
               <td>{ mis.name }</td>
               <td>{ mis.description }</td>
-              <td className="mission-btn"><button type="button" className={mis.mission ? ' aactive' : ' inactive '}>{mis.mission ? ' active Member' : 'Not a Memeber'}</button></td>
-              <td className="mission-btn"><button type="button" className={mis.mission ? 'activebtn' : 'inactivebtn'} onClick={() => updateMission(mis.id)}>{ mis.mission ? 'Leave Misson ' : ' Join Mission'}</button></td>
+              <td className="mission-btns">
+
+                <p className={mis.mission ? ' aactive' : ' inactive '}>{mis.mission ? ' active Member' : 'Not a Memeber'}</p>
+                <button className={mis.mission ? 'activebtn' : 'inactivebtn'} type="button" onClick={() => updateMission(mis.id)}>{ mis.mission ? 'Cancel Misson ' : ' Join Mission'}</button>
+
+              </td>
             </tr>
+
           </tbody>
         ))}
         ;
-      </Table>
+
+      </table>
     </div>
   );
 };

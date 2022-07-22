@@ -7,46 +7,19 @@ function RocketCard() {
   rockets.map((data) => {
     if (!data.reserved) {
       counter += 1;
-
-  const { rockets} = useSelector((store)=> store.rocket)
-  let counter =0
-  rockets.map((data)=>{
-  if(!data.reserved){
-    counter++
-  }
-  return counter 
-  })
-  return (
-    <>  
-    <div>
-    <h3>My Rockets</h3>
-    {   counter > 0 ?  (
-
-    profileCard
-    {   counter >=0 ?  (
-
-rockets.map((rocket)=>{
-    if (rocket.reserved){
-      return(
-        <li className="Profile-cards"> 
-
-        <li key={rocket.id}> 
-         {   rocket.name}
-        </li>
-      )
     }
     return counter;
   });
   return (
     <>
       <div>
-        <h3>My Rockets</h3>
+        profileCard
         { counter > 0 ? (
 
           rockets.map((rocket) => {
-            if (rocket.reserved) {
+            if (!rocket.reserved) {
               return (
-                <li className="Profile-cards">
+                <li>
                   { rocket.name}
                 </li>
               );
