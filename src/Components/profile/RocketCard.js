@@ -5,7 +5,7 @@ function RocketCard() {
   const { rockets } = useSelector((store) => store.rocket);
   let counter = 0;
   rockets.map((data) => {
-    if (!data.reserved) {
+    if (data.reserved) {
       counter += 1;
     }
     return counter;
@@ -17,7 +17,7 @@ function RocketCard() {
         { counter > 0 ? (
 
           rockets.map((rocket) => {
-            if (!rocket.reserved) {
+            if (rocket.reserved) {
               return (
                 <li>
                   { rocket.name}
