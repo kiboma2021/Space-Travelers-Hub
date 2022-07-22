@@ -12,25 +12,28 @@ export const rocketSlice = createSlice({
   name:'rockets',
   initialState,
   reducers:{
-           updateReserved: (state,action)=>{ 
-              state.rockets=action.payload
-           }
+      updateReserved: (state,action)=>{ 
+        const rockets = state.map((roc) => {
+          if (roc.id === action.payload) return { ...roc, reserved: true };
+  
+          return roc;
+        });
+        return rockets;
+      },
+      cancelReservation: (state, { payload }) => {
+      const rockets = state.map((roc) => {
+        if (roc.id === payload) return { ...roc, reserved: false };
+
+        return roc;
+      });
+      return rockets;
+    },
   },
+
   extraReducers: {
-    [getRockets.pending]: (state) => {
-      state.isLoading = true;// eslint-disable-line
-    },
-    [getRockets.fulfilled]: (state, action) => {
-      state.isLoading = false;// eslint-disable-line
-      const item = action.payload;
-      state.rockets = item; // eslint-disable-line
-    },
-    [getRockets.rejected]: (state) => {
-      state.isLoading = false;// eslint-disable-line
-    },
-  }
+    [getRockets.fulfilled]: (state, { payload }) => payload,
+  },
+  
 })
-export const { updateReserved }=rocketSlice.actions
+export const { updateReserved, cancelReservation }=rocketSlice.actions
 export default rocketSlice.reducer;
-
-

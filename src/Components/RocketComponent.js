@@ -1,14 +1,21 @@
 import React,{ useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { getRockets,updateReserved } from '../Redux/rocket/rocket';
+import { getRockets,updateReserved, cancelReservation } from '../Redux/rocket/rocket';
 import "../Styles/Rockets.css"
 
 const Rocket = () => {
+
+  const { rockets }= useSelector((store)=>store.rocket);
   const dispatch= useDispatch()
-  useEffect(()=>{
-     dispatch(getRockets())
-  },[dispatch])
-  const { rockets}= useSelector((store)=>store.rocket)
+  console.log(rockets)
+  useEffect(() => {
+    if (!rockets.length) {
+      dispatch(getRockets());
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
+
+/*  const { rockets}= useSelector((store)=>store.rocket)
   
    const updateRocket=(id)=>{
      const dene =  rockets.map((item)=>{   
@@ -23,7 +30,7 @@ const Rocket = () => {
       })
       dispatch(updateReserved(dene))
    }
-
+*/
 
 
   const renderList = rockets.map((rocket) => {
@@ -38,9 +45,19 @@ const Rocket = () => {
               { reserved? <span className="reserved-span "> Reserved  </span>:'' }
               { description }
               </div>
-              <button type="button"onClick={()=>updateRocket(id)} className={reserved? "rocket-btn": 'btn'}>
-             { reserved? ' Cancel Reservation' : ' Reserve Rocket'  }
-              </button>
+              {reserved ? (
+                <button type="button"
+                  onClick={() => dispatch(cancelReservation(id))}
+                >
+                  Cancel Reservation
+                </button>
+              ) : (
+                <button type="button"
+                  onClick={() => dispatch(updateReserved(id))}
+                >
+                  Reserve Rocket
+                </button>
+              )}
             </div>
           </div>
     </div>
