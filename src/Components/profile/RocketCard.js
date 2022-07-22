@@ -20,7 +20,7 @@ function RocketCard() {
 rockets.map((rocket)=>{
     if (!rocket.reserved){
       return(
-        <li> 
+        <li className="Profile-cards"> 
          {   rocket.name}
         </li>
       )

@@ -23,7 +23,8 @@ const Header = () => {
           </li>          
         </ul>
       </div>
-    </nav>
+      <hr></hr>
+    </nav> 
   )
 }
 

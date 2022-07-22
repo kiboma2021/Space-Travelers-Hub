@@ -22,7 +22,7 @@ function MissionCard() {
      { missionCounter > 0 ? (
        missionReserved.map((mission)=>(
 
-         <li> 
+         <li className="Profile-cards"> 
          {mission.name}
          </li>
        ))
