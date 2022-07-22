@@ -5,33 +5,15 @@ import "../Styles/Rockets.css"
 
 const Rocket = () => {
 
-  const { rockets }= useSelector((store)=>store.rocket);
+  const rockets = useSelector((store)=>store.rocket);
   const dispatch= useDispatch()
-  console.log(rockets)
+  console.log(".........."+ rockets)
   useEffect(() => {
     if (!rockets.length) {
       dispatch(getRockets());
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
-
-/*  const { rockets}= useSelector((store)=>store.rocket)
-  
-   const updateRocket=(id)=>{
-     const dene =  rockets.map((item)=>{   
-       if( item.id ===id){
-         const reservedState = item.reserved
-         return{
-           ...item,
-           reserved:!reservedState
-         }
-       }
-       return item
-      })
-      dispatch(updateReserved(dene))
-   }
-*/
-
 
   const renderList = rockets.map((rocket) => {
     const {id, name, description, reserved,flickr_images} = rocket;
