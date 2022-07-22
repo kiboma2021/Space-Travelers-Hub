@@ -17,9 +17,11 @@ function MissionCard() {
 
   return (
 <>
-<div>missionCard
+<div>
+  <h3>My Missions</h3>
      { missionCounter > 0 ? (
        missionReserved.map((mission)=>(
+
          <li> 
          {mission.name}
          </li>
@@ -31,7 +33,6 @@ function MissionCard() {
 
    </li>
      )
-     
      }
 
 </div>

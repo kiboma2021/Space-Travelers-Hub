@@ -14,7 +14,7 @@ function RocketCard() {
   return (
     <>  
     <div>
-    profileCard
+    <h3>My Rockets</h3>
     {   counter > 0 ?  (
 
 rockets.map((rocket)=>{
