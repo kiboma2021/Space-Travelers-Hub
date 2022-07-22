@@ -18,7 +18,7 @@ function RocketCard() {
     {   counter > 0 ?  (
 
 rockets.map((rocket)=>{
-    if (!rocket.reserved){
+    if (rocket.reserved){
       return(
         <li className="Profile-cards"> 
          {   rocket.name}
@@ -30,7 +30,6 @@ rockets.map((rocket)=>{
 ):(
    <li>     Reserved Rockets Currently (0) </li>
 )
-
 
 }
     </div>

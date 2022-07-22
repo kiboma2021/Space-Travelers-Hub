@@ -34,7 +34,6 @@ function MissionCard() {
    </li>
      )
      }
-
 </div>
 
 
