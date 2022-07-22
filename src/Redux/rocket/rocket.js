@@ -14,6 +14,7 @@ export const rocketSlice = createSlice({
   reducers:{
            updateReserved: (state,action)=>{ 
               state.rockets=action.payload
+              return state
            }
   },
   extraReducers: {
