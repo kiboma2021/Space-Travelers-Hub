@@ -13,13 +13,13 @@ function RocketCard() {
   return (
     <>
       <div>
-        profileCard
+        <h3>My Rockets</h3>
         { counter > 0 ? (
 
           rockets.map((rocket) => {
             if (rocket.reserved) {
               return (
-                <li>
+                <li className="Profile-cards">
                   { rocket.name}
                 </li>
               );
