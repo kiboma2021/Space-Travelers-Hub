@@ -5,12 +5,13 @@ import "../Styles/Mission.css"
 
 const Mission = () => {
   const dispatch= useDispatch()
+    const { missions} = useSelector((store)=>store.mission)
+
   useEffect(()=>{
     if (!missions.length) {
       dispatch(getMission());
     }
   },[dispatch])
-  const { missions} = useSelector((store)=>store.mission)
   
   const updateMission= (id)=>{
   const dene= missions.map((item)=>{

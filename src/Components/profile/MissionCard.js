@@ -18,9 +18,9 @@ function MissionCard() {
   return (
 <>
 <div>missionCard
-     { missionCounter > 0 ? (
+     { missionCounter >=0 ? (
        missionReserved.map((mission)=>(
-         <li> 
+         <li key={mission.id}> 
          {mission.name}
          </li>
        ))
