@@ -1,20 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getMissionData } from "../../services/api.service";
+import { getMissionData } from '../../services/api.service';
 
+export const getMission = createAsyncThunk('job/getMission', getMissionData);
 
-export const getMission = createAsyncThunk('job/getMission', getMissionData)
-
-const initialState ={
-  missions:[],
-  isLoading:true,
-}
+const initialState = {
+  missions: [],
+  isLoading: true,
+};
 export const MissionSlice = createSlice({
-  name:'rockets',
+  name: 'rockets',
   initialState,
-  reducers:{
-           missionUpdate:(state,action)=>{
-                        state.missions=action.payload  
-           }
+  reducers: {
+    missionUpdate: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.missions = action.payload;
+    },
   },
   extraReducers: {
     [getMission.pending]: (state) => {
@@ -28,7 +28,7 @@ export const MissionSlice = createSlice({
     [getMission.rejected]: (state) => {
       state.isLoading = false;// eslint-disable-line
     },
-  }
-})
-export const {missionUpdate }= MissionSlice.actions;
+  },
+});
+export const { missionUpdate } = MissionSlice.actions;
 export default MissionSlice.reducer;

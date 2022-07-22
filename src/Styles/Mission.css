@@ -12,42 +12,48 @@ table {
   overflow: hidden;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.397);
-  margin: 0;
-}
-
-button {
-  background-color: white;
-  width: max-content;
-  padding: 0.3rem;
-  border: 1.5px solid rgba(0, 0, 0, 0.384);
-  border-radius: 0.1rem;
-  margin: 1rem;
-}
-
-td {
-  padding: 0.2rem;
-  margin: 0;
-  border-collapse: collapse;
-  border: 1px solid rgba(0, 0, 0, 0.438);
-}
-
-.mission-btns {
-  border-right-style:hidden;
-}
-
 th {
   text-align: left;
 }
 
-
-tbody {
-  margin: 5rem;
+td {
+  padding: 0.2rem;
+  margin: 1rem;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.438);
 }
 
+.mission-btn {
+  border-right-style: hidden;
+  width: 8%;
+}
 
+.aactive {
+  background-color: blue;
+  border-style: none;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 5px;
+}
 
-.mission-card {
-  margin: 5rem;
+.inactive {
+  background-color: rgb(133, 127, 127);
+  border-style: none;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 5px;
+}
+
+.activebtn {
+  background-color: rgb(238, 232, 232);
+  color: red;
+  padding: 0 1rem;
+  border-radius: 5px;
+}
+
+.inactivebtn {
+  background-color: rgb(238, 232, 232);
+  color: black;
+  padding: 0 1rem;
+  border-radius: 5px;
 }
