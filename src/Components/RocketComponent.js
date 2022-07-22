@@ -6,7 +6,9 @@ import "../Styles/Rockets.css"
 const Rocket = () => {
   const dispatch= useDispatch()
   useEffect(()=>{
-     dispatch(getRockets())
+    if (!rockets.length) {
+      dispatch(getRockets());
+    }
   },[dispatch])
   const { rockets}= useSelector((store)=>store.rocket)
   
