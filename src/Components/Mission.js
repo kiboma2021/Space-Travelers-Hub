@@ -6,7 +6,9 @@ import "../Styles/Mission.css"
 const Mission = () => {
   const dispatch= useDispatch()
   useEffect(()=>{
-     dispatch(getMission())
+    if (!missions.length) {
+      dispatch(getMission());
+    }
   },[dispatch])
   const { missions} = useSelector((store)=>store.mission)
   
