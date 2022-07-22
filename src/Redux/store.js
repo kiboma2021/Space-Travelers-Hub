@@ -23,4 +23,10 @@ export const   store = configureStore({
           serializableCheck: false,
         }),
 })
+export const setupStore = preloadedState => {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
 export const persistor = persistStore(store)

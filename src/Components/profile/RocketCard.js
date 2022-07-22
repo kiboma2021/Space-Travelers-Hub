@@ -7,7 +7,7 @@ function RocketCard() {
   let counter =0
   rockets.map((data)=>{
   if(!data.reserved){
-    counter +=1
+    counter++
   }
   return counter 
   })
@@ -17,10 +17,15 @@ function RocketCard() {
     <h3>My Rockets</h3>
     {   counter > 0 ?  (
 
+    profileCard
+    {   counter >=0 ?  (
+
 rockets.map((rocket)=>{
     if (rocket.reserved){
       return(
         <li className="Profile-cards"> 
+
+        <li key={rocket.id}> 
          {   rocket.name}
         </li>
       )
