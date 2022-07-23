@@ -17,7 +17,7 @@ function MissionCard() {
     <>
       <div>
         <h3>My Missions</h3>
-        { missionCounter > 0 ? (
+        { missionCounter >= 0 ? (
           missionReserved.map((mission) => (
 
             <li key={mission.id} className="Profile-cards">
