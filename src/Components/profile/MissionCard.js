@@ -6,7 +6,7 @@ function MissionCard() {
   const missionReserved = missions.filter((data) => data.mission === true);
   let missionCounter = 0;
 
-  missions.map((mission) => {
+  missions.filter((mission) => {
     if (!mission.mission) {
       missionCounter += 1;
     }

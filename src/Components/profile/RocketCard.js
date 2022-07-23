@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 function RocketCard() {
   const { rockets } = useSelector((store) => store.rocket);
   let counter = 0;
-  rockets.map((data) => {
+
+  rockets.filter((data) => {
     if (!data.reserved) {
       counter += 1;
     }
@@ -14,10 +15,10 @@ function RocketCard() {
     <>
       <div>
         profileCard
-        { counter > 0 ? (
+        { counter >= 0 ? (
 
           rockets.map((rocket) => {
-            if (!rocket.reserved) {
+            if (rocket.reserved) {
               return (
                 <li>
                   { rocket.name}
