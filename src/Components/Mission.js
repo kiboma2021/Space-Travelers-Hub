@@ -43,12 +43,8 @@ const Mission = () => {
             <tr key={mis.id} className="mission-card">
               <td>{ mis.name }</td>
               <td>{ mis.description }</td>
-              <td className="mission-btns">
-
-                <p className={mis.mission ? ' aactive' : ' inactive '}>{mis.mission ? ' active Member' : 'Not a Memeber'}</p>
-                <button className={mis.mission ? 'activebtn' : 'inactivebtn'} type="button" onClick={() => updateMission(mis.id)}>{ mis.mission ? 'Cancel Misson ' : ' Join Mission'}</button>
-
-              </td>
+              <td className="mission-btn"><button type="button" className={mis.mission ? ' aactive' : ' inactive '}>{mis.mission ? ' active Member' : 'Not a Memeber'}</button></td>
+              <td className="mission-btn"><button type="button" className={mis.mission ? 'activebtn' : 'inactivebtn'} onClick={() => updateMission(mis.id)}>{ mis.mission ? 'Cancel Misson ' : ' Join Mission'}</button></td>
             </tr>
 
           </tbody>
