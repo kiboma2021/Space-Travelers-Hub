@@ -27,7 +27,7 @@ function RocketCard() {
             return null;
           })
         ) : (
-          <li>     Reserved Rockets Currently (0) </li>
+          <li>     Reserved Rockets Currently (!0) </li>
         )}
       </div>
     </>
